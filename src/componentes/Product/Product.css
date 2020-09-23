@@ -1,6 +1,6 @@
 .product {
     display: flex;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(248, 162, 162);
     padding-bottom: 5px;
     margin-bottom: 5px;
     margin-right: 5px;
@@ -9,4 +9,13 @@
 .product-name {
     color: blue;
     font-weight: 400;
+}
+
+.main-button {
+    background-color: goldenrod;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+
 }
