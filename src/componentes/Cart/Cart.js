@@ -33,9 +33,10 @@ const Cart = (props) => {
         <div>
             <p>Order items : {cart.length}</p>
             <p>Product Price:{formatNumber(total)} </p>
-            <p>Shipping:{shipping} </p>
+            <p>Shipping: {shipping} </p>
             <p>Tax+vat: {tax} </p>
             <p>Total: {grandTotal} </p>
+            
         </div>
     );
 };
