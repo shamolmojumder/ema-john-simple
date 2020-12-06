@@ -15,6 +15,7 @@ import NotFound from './componentes/NotFound/NotFound';
 import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
 
 
+
 function App() {
 return (
   <div>
@@ -33,7 +34,7 @@ return (
         <Route exact path="/">
           <Shop></Shop>
         </Route>
-       <Route path="/:productDetail">
+       <Route path="/product/:productKey">
           <ProudctDetail></ProudctDetail>
        </Route>
         <Route path="*">
