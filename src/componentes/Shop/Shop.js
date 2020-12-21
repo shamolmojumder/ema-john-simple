@@ -17,9 +17,7 @@ const Shop = () => {
     }
     return (
         <div className="shop-container">
-
-            <div className="product-container">
-
+             <div className="product-container">
                 {
                     products.map(pd =>
                         <Product
