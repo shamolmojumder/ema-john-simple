@@ -9,8 +9,8 @@ const ProudctDetail = () => {
     
     return (
         <div>
-            <h1>{productKey} deatil comming soon</h1>
-<Product showAddtoCart={false} product={product}></Product>
+            <h1> Product Details</h1>
+            <Product showAddtoCart={false} product={product}></Product>
         </div>
     );
 };
