@@ -36,8 +36,11 @@ return (
         </Route>
        <Route path="/product/:productKey">
           <ProudctDetail></ProudctDetail>
-       </Route>
-        <Route path="*">
+       </Route>       
+       {/* <Router path="/product/review">
+          <NotFound></NotFound>
+       </Router> */}
+       <Route path="*">
           <NotFound></NotFound>
         </Route>
 
