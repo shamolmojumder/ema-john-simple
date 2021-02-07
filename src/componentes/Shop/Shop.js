@@ -31,6 +31,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
+                <small>This is card from shop js</small>
                 <Cart cart={cart}></Cart>
             </div>
         </div>
