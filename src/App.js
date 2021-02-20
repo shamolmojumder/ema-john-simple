@@ -28,9 +28,9 @@ return (
         <Route path="/review">
           <Review></Review>
         </Route>
-        <Route path="/product/review">
+        {/* <Route path="/product/review">
          <Shop></Shop>
-        </Route>
+        </Route> */}
         <Route path="/inventory">
           <Inventory></Inventory>
         </Route>
