@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import fakeData from '../../fakeData';
 import { getDatabaseCart } from '../../utilities/databaseManager';
-import { fakedata } from '../data/fakeData';
+
 
 const Review = () => {
     const {cart,setCart} = ([])    
@@ -8,14 +9,16 @@ const Review = () => {
         // cart
         const savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart)
-        const counts=productKeys.map(key => {
-          const product = fakedata
+        const cartProducts=productKeys.map(key => {
+            const product =fakeData.find(pd=>pd.key===key);
+            product.quantity=savedCart[key]
+            return product;
         })
-        console.log(counts);
-    })
+        setCart(cartProducts)
+    },[])
     return (
         <div>
-            <h1>Review component</h1>
+            <h1>Review component  {cart.lenght} </h1>
         </div>
     );
 };
