@@ -22,7 +22,9 @@ const Review = () => {
             <h1>Review component  {cart.length} </h1>
             {
                 cart.map(pd=> 
-                <ReviewItem  product={pd} key={pd.key}></ReviewItem> )
+                <ReviewItem  product={pd} key={pd.key}>
+                    
+                </ReviewItem> )
             }
         </div>
     );
