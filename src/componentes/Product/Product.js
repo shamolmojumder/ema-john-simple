@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     //  console.log(props.product.key);
-    const { name, img, seller, price, stock,key } = props.product
+    const { name, img, seller, price, stock,key,wholePrice } = props.product
     return (
         <div className="product">
 
@@ -20,6 +20,7 @@ const Product = (props) => {
                 <br />
                 <p> <small> by {seller}</small> </p>
                 <p><small>Price: {price}</small></p>
+                <p> <small>Whole Sale Price: ${wholePrice}</small> </p>
                 <br />
                 <p><small>only {stock} left in stock - order soon </small></p>
                 {props.showAddToCart === true && <button className="main-button" onClick={() => { props.handleAddProduct(props.product) }}> <FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>}
