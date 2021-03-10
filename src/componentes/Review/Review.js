@@ -30,7 +30,7 @@ const Review = () => {
         {/* <h1>Review component  {cart.length} </h1> */}
         <div className="product-container">
         {        
-             cart.map(pd=>    <ReviewItem  product={pd} key={pd.key} removeProduct={removeProduct}></ReviewItem> )
+             cart.map(pd=> <ReviewItem  product={pd} key={pd.key} removeProduct={removeProduct}></ReviewItem> )
         }
         </div>
 
