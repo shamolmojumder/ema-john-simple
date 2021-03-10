@@ -29,8 +29,9 @@ const Shop = () => {
         if (sameProduct) {
             count=sameProduct.quantity+1;
             sameProduct.quantity=count;
-            const others=cart.filter(pd=> pd.key !==toBeAdded);
-            newCart(...others,sameProduct)
+            const others=cart.filter(pd=> pd.key !== toBeAdded);
+            newCart=[...others,sameProduct]
+            // debugger;
         }else{
             product.quantity=1;
             newCart=[...cart,product]
