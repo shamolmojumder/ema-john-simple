@@ -10,8 +10,8 @@ const Review = () => {
     const [cart,setCart] = useState([]);
     const [orderPlaced,setorderPlaced]=useState(false)
     const handlePlaceorder=()=>{
-       setCart([])
-       setorderPlaced(true)
+        setCart([])
+        setorderPlaced(true)
         processOrder()
         console.log("ordered");
     }
