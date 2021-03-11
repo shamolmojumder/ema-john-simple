@@ -3,7 +3,9 @@ import fakeData from '../../fakeData'
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import { Link } from 'react-router-dom';
 import './Shop.css'
+
 const Shop = () => {
     const first10 = fakeData.slice(0, 10)
     const [products, setProducts] = useState(first10)
@@ -12,6 +14,7 @@ const Shop = () => {
     useEffect(()=>{
         const savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart)
+    //    console.log(typeof(savedCart));
         const previousCart=productKeys.map(existingKey =>{
             const product=fakeData.find(pd=>pd.key=== existingKey);
             product.quantity=savedCart[existingKey];
@@ -55,7 +58,9 @@ const Shop = () => {
             </div>
             <div className="cart-container">
                 <small>This is card from shop js</small>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                     <Link to="/review"> <button className="main-button"> Review Order</button> </Link>
+                </Cart>
             </div>
         </div>
     );
