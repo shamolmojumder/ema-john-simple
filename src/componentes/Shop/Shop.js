@@ -14,7 +14,7 @@ const Shop = () => {
     useEffect(()=>{
         const savedCart=getDatabaseCart();
         // console.log(Array.isArray("savedCart"+savedCart));
-        // console.log(Array.isArray(savedCart));
+      //   console.log(Array.isArray(savedCart));
         const productKeys=Object.keys(savedCart)
         //console.log(Array.isArray('productKeys' + productKeys));
             //  console.log(Array.isArray(productKeys));
