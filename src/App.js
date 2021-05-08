@@ -16,8 +16,6 @@ import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
 import Shipment from './componentes/Shipments/Shipment';
 import Login from './componentes/Login/Login';
 
-
-
 function App() {
 return (
   <div>
