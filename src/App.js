@@ -13,6 +13,8 @@ import Review from './componentes/Review/Review';
 import Inventory from './componentes/Inventory/Inventory';
 import NotFound from './componentes/NotFound/NotFound';
 import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
+import Shipment from './componentes/Shipments/Shipment';
+import Login from './componentes/Login/Login';
 
 
 
@@ -33,6 +35,12 @@ return (
         </Route> */}
         <Route path="/inventory">
           <Inventory></Inventory>
+        </Route>
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+        <Route path="/shipment">
+          <Shipment></Shipment>
         </Route>
         <Route exact path="/">
           <Shop></Shop>

@@ -5,7 +5,7 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { Link } from 'react-router-dom';
 import './Shop.css'
-import Shipment from '../Shipments/Shipment';
+
 
 const Shop = () => {
     const first10 = fakeData.slice(0, 10)
@@ -50,7 +50,6 @@ const Shop = () => {
     }
     return (
         <div className="twin-container">
-            <Shipment></Shipment>
              <div className="product-container">
                 {
                     products.map(pd =>
