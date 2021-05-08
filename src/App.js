@@ -37,7 +37,7 @@ return (
           <Inventory></Inventory>
         </Route>
         <Route path="/login">
-          <Login></Login>
+          <Login>gi</Login>
         </Route>
         <Route path="/shipment">
           <Shipment></Shipment>
