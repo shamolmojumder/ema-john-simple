@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import './App.css';
 import Header from './componentes/Header/Header';
-import Product from './componentes/Product/Product';
 import Shop from './componentes/Shop/Shop';
 import {
 BrowserRouter as Router,
@@ -16,9 +15,13 @@ import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
 import Shipment from './componentes/Shipments/Shipment';
 import Login from './componentes/Login/Login';
 
-function App() {
+export const UserContext =createContext();
+
+function App(props) {
+  const [loggedInUser,setLoggedInUser]=useState({});  
 return (
-  <div>
+  <UserContext.Provider value ={[loggedInUser,setLoggedInUser]}>
+      <h1>Email  : {loggedInUser.email} </h1>
       <Header></Header>
     <Router>
       <Switch>
@@ -35,7 +38,7 @@ return (
           <Inventory></Inventory>
         </Route>
         <Route path="/login">
-          <Login>gi</Login>
+          <Login></Login>
         </Route>
         <Route path="/shipment">
           <Shipment></Shipment>
@@ -55,7 +58,7 @@ return (
 
       </Switch>
     </Router>
-  </div>
+  </UserContext.Provider>
 );
 }
 
