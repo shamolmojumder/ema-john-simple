@@ -14,6 +14,7 @@ import NotFound from './componentes/NotFound/NotFound';
 import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
 import Shipment from './componentes/Shipments/Shipment';
 import Login from './componentes/Login/Login';
+import PrivateRoute from './componentes/PrivateRoute/PrivateRoute';
 
 export const UserContext =createContext();
 
@@ -34,15 +35,15 @@ return (
         {/* <Route path="/product/review">
          <Shop></Shop>
         </Route> */}
-        <Route path="/inventory">
+        <PrivateRoute path="/inventory">
           <Inventory></Inventory>
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login></Login>
         </Route>
-        <Route path="/shipment">
+        <PrivateRoute path="/shipment">
           <Shipment></Shipment>
-        </Route>
+        </PrivateRoute>
         <Route exact path="/">
           <Shop></Shop>
         </Route>
