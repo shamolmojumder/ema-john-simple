@@ -9,11 +9,12 @@ Route,
 Link
 } from "react-router-dom";
 import Review from './componentes/Review/Review';
-// import Inventory from './componentes/Inventory/Inventory';
+import Inventory from './componentes/Inventory/Inventory';
 import NotFound from './componentes/NotFound/NotFound';
 import ProudctDetail from './componentes/ProuductDetail/ProudctDetail';
-// import Shipment from './componentes/Shipments/Shipment';
-// import Login from './componentes/Login/Login';
+import Login from './componentes/Login/Login';
+import Shipment from './componentes/Shipments/Shipment';
+
 // import PrivateRoute from './componentes/PrivateRoute/PrivateRoute';
 
 export const UserContext =createContext();
@@ -32,18 +33,18 @@ return (
         <Route path="/review">
           <Review></Review>
         </Route>
-        {/* <Route path="/product/review">
+        <Route path="/product/review">
          <Shop></Shop>
-        </Route> */}
-        {/* <PrivateRoute path="/inventory">
+        </Route>
+        <Route path="/inventory">
           <Inventory></Inventory>
-        </PrivateRoute> */}
-        {/* <Route path="/login">
+        </Route>
+        <Route path="/login">
           <Login></Login>
-        </Route> */}
-        {/* <PrivateRoute path="/shipment">
+        </Route>
+        <Route path="/shipment">
           <Shipment></Shipment>
-        </PrivateRoute> */}
+        </Route>
         <Route exact path="/">
           <Shop></Shop>
         </Route>
