@@ -34,6 +34,7 @@ function Login() {
         photo:photoURL
       };
       setUser(signedinUser);
+      //setLoggedInUser(signedinUser);
       //console.log(displayName,email,photoURL);
     })
     .catch(err=>{
