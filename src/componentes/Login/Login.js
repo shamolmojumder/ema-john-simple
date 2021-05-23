@@ -1,11 +1,8 @@
 import React, { useContext, useState } from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from './firebase.Config';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import {initializeLoginFramework} from './loginManager';
 
-firebase.initializeApp(firebaseConfig);
 
 function Login() {
   const [newUser,setNewUser]=useState(false)
@@ -17,7 +14,7 @@ function Login() {
     photo:''
   });
   console.log(user);
-
+  initializeLoginFramework();
   const [loggedInUser,setLoggedInUser]=useContext(UserContext)
   const history =useHistory();
   const location =useLocation();
