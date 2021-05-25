@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
-import {initializeLoginFramework} from './loginManager';
+import {handleGoogleSignIn, initializeLoginFramework,handleSignOut, handleFbSignIn} from './loginManager';
 
 
 function Login() {
@@ -19,13 +19,31 @@ function Login() {
   const history =useHistory();
   const location =useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
+  const googleSignIn=()=>{
+    handleGoogleSignIn()
+    .then(res=>{
+      setUser(res)
+      setLoggedInUser(res)
+      history.replace(from)
+    })
+  }
+  const fbSignIn=()=>{
+    handleFbSignIn()
+    .then(res=>{
+      setUser(res)
+      setLoggedInUser(res)
+      history.replace(from)
+    })
+  }
+  const signOut=()=>{
+    handleSignOut()
+    .then(res=>{
+      setUser(res);
+      setLoggedInUser(res)
+    })
+  }
   const {name,email,photo}=user;
-  
-  
- 
 
-  
-  
 
 const handleBlur = (e)=>{
   //console.log(e.target.name,e.target.value);
@@ -62,10 +80,10 @@ const handleSubmit =(e)=>{
     <div style={{textAlign:'center'}}>
       <h1>Hello from App.js </h1>
      {
-        user.isSignedIn ? <button onClick={handleSignOut}>Sign out</button> : <button onClick={handleGoogleSignIn}>Sign in</button>
+        user.isSignedIn ? <button onClick={signOut}>Sign out</button> : <button onClick={googleSignIn}>Sign in</button>
      }
      <br />
-     <button onClick={handleFbSignIn}>Login using Facebook</button>
+     <button onClick={fbSignIn}>Login using Facebook</button>
       {
         user.isSignedIn && 
         <div>

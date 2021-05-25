@@ -3,13 +3,15 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.Config';
 
-const initializeLoginFramework = ()=>{
-    firebase.initializeApp(firebaseConfig);
+export const initializeLoginFramework = ()=>{
+    if (firebase.app.length===0) {
+      firebase.initializeApp(firebaseConfig);
+    }
 }
 
 export const handleGoogleSignIn= ()=>{
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(googleProvider)
+    return firebase.auth().signInWithPopup(googleProvider)
     .then(res=>{
       console.log(res);
       const {displayName,email,photoURL}=res.user;
@@ -19,7 +21,7 @@ export const handleGoogleSignIn= ()=>{
         email:email,
         photo:photoURL
       };
-      setUser(signedinUser);
+    return signedinUser;
       //setLoggedInUser(signedinUser);
       //console.log(displayName,email,photoURL);
     })
@@ -32,14 +34,14 @@ export const handleGoogleSignIn= ()=>{
 // facebook login beta
 export const handleFbSignIn=()=>{
     const fbProvider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(fbProvider)
+    return firebase.auth().signInWithPopup(fbProvider)
     .then((result) => {
     /** @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
 
     // The signed-in user info.
     var user = result.user;
-
+    return user;
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var accessToken = credential.accessToken;
     console.log(user);
@@ -58,8 +60,8 @@ export const handleFbSignIn=()=>{
   });
   }
 
-  const handleSignOut = ()=>{
-    firebase.auth().signOut()
+  export const handleSignOut = ()=>{
+   return firebase.auth().signOut()
     .then(res=>{
      const signOutUser={
       isSignedIn:false,
@@ -69,70 +71,70 @@ export const handleFbSignIn=()=>{
       error:'',
       success:false
      };
-     setUser(signOutUser);
+     return signOutUser;
     })
     .catch(err=>{
 
     });
   }
-export const createUserWithEmailAndPassword= ()=>{
-    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-    .then(res=>{
-      const newUserInfo={...user};
-      newUserInfo.error='';
-      newUserInfo.success=true;
-      setUser(newUserInfo);
-      updateUserName(user.name)
-      //console.log(res);
-    })
-    .then((userCredential) => {
-    // Signed in 
-    //var user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const newUserInfo={...user};
-    newUserInfo.error=error.message;
-    newUserInfo.success=false;
-    setUser(newUserInfo)
-    // ..
-    //console.log(errorCode,errorMessage);
-  });
-}
+//   export const createUserWithEmailAndPassword= ()=>{
+//     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+//     .then(res=>{
+//       const newUserInfo={...user};
+//       newUserInfo.error='';
+//       newUserInfo.success=true;
+//       setUser(newUserInfo);
+//       updateUserName(user.name)
+//       //console.log(res);
+//     })
+//     .then((userCredential) => {
+//     // Signed in 
+//     //var user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const newUserInfo={...user};
+//     newUserInfo.error=error.message;
+//     newUserInfo.success=false;
+//     setUser(newUserInfo)
+//     // ..
+//     //console.log(errorCode,errorMessage);
+//   });
+// }
 
-export const signInWithEmailAndPassword=()=>{
-    firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-    .then(res=>{
-      const newUserInfo={...user};
-      newUserInfo.error='';
-      newUserInfo.success=true;
-      setUser(newUserInfo);
-      setLoggedInUser(newUserInfo);
-      history.replace(from);
-      console.log('sign in',res.user);
-    })
+// export const signInWithEmailAndPassword=()=>{
+//     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+//     .then(res=>{
+//       const newUserInfo={...user};
+//       newUserInfo.error='';
+//       newUserInfo.success=true;
+//       setUser(newUserInfo);
+//       setLoggedInUser(newUserInfo);
+//       history.replace(from);
+//       console.log('sign in',res.user);
+//     })
 
-  .then((userCredential) => {
-    // Signed in
-    //var user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const newUserInfo={...user};
-    newUserInfo.error=error.message;
-    newUserInfo.success=false;
-    setUser(newUserInfo)
-  });
-}
+//   .then((userCredential) => {
+//     // Signed in
+//     //var user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const newUserInfo={...user};
+//     newUserInfo.error=error.message;
+//     newUserInfo.success=false;
+//     setUser(newUserInfo)
+//   });
+// }
 
-const updateUserName=name=>{
-    const user = firebase.auth().currentUser;
+// const updateUserName=name=>{
+//     const user = firebase.auth().currentUser;
 
-    user.updateProfile({
-      displayName:name
-    }).then(function() {
-     console.log("user name updated");
-    }).catch(function(error) {
-     console.log(error);
-    });
-  }
+//     user.updateProfile({
+//       displayName:name
+//     }).then(function() {
+//      console.log("user name updated");
+//     }).catch(function(error) {
+//      console.log(error);
+//     });
+//   }
