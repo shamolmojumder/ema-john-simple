@@ -3,9 +3,9 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.Config';
 
-export const initializeLoginFramework = ()=>{
-    if (firebase.app.length===0) {
-      firebase.initializeApp(firebaseConfig);
+export const initializeLoginFramework = () =>{
+  if (firebase.apps.length===0) {
+      firebase.initializeApp(firebaseConfig); 
     }
 }
 
