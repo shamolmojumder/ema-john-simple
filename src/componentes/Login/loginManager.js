@@ -19,7 +19,8 @@ export const handleGoogleSignIn= ()=>{
         isSignedIn:true,
         name:displayName,
         email:email,
-        photo:photoURL
+        photo:photoURL,
+        success:true
       };
     return signedinUser;
       //setLoggedInUser(signedinUser);
@@ -41,6 +42,7 @@ export const handleFbSignIn=()=>{
 
     // The signed-in user info.
     var user = result.user;
+    user.success=true;
     return user;
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var accessToken = credential.accessToken;
@@ -77,64 +79,62 @@ export const handleFbSignIn=()=>{
 
     });
   }
-//   export const createUserWithEmailAndPassword= ()=>{
-//     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-//     .then(res=>{
-//       const newUserInfo={...user};
-//       newUserInfo.error='';
-//       newUserInfo.success=true;
-//       setUser(newUserInfo);
-//       updateUserName(user.name)
-//       //console.log(res);
-//     })
-//     .then((userCredential) => {
-//     // Signed in 
-//     //var user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const newUserInfo={...user};
-//     newUserInfo.error=error.message;
-//     newUserInfo.success=false;
-//     setUser(newUserInfo)
-//     // ..
-//     //console.log(errorCode,errorMessage);
-//   });
-// }
+  export const createUserWithEmailAndPassword= (name,email,password)=>{
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(res=>{
+      const newUserInfo=res.user;
+      newUserInfo.error='';
+      newUserInfo.success=true;
+      updateUserName(name)
+      return newUserInfo;
+      //console.log(res);
+    })
+    .then((userCredential) => {
+    // Signed in 
+    //var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const newUserInfo={};
+    newUserInfo.error=error.message;
+    newUserInfo.success=false;
+    return newUserInfo;
+    // ..
+    //console.log(errorCode,errorMessage);
+  });
+}
 
-// export const signInWithEmailAndPassword=()=>{
-//     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-//     .then(res=>{
-//       const newUserInfo={...user};
-//       newUserInfo.error='';
-//       newUserInfo.success=true;
-//       setUser(newUserInfo);
-//       setLoggedInUser(newUserInfo);
-//       history.replace(from);
-//       console.log('sign in',res.user);
-//     })
+export const signInWithEmailAndPassword=(email,password)=>{
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(res=>{
+      const newUserInfo={};
+      newUserInfo.error='';
+      newUserInfo.success=true;
+      return newUserInfo;
+      console.log('sign in',res.user);
+    })
 
-//   .then((userCredential) => {
-//     // Signed in
-//     //var user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const newUserInfo={...user};
-//     newUserInfo.error=error.message;
-//     newUserInfo.success=false;
-//     setUser(newUserInfo)
-//   });
-// }
+  .then((userCredential) => {
+    // Signed in
+    //var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const newUserInfo={};
+    newUserInfo.error=error.message;
+    newUserInfo.success=false;
+    return newUserInfo;
+  });
+}
 
-// const updateUserName=name=>{
-//     const user = firebase.auth().currentUser;
+const updateUserName=name=>{
+    const user = firebase.auth().currentUser;
 
-//     user.updateProfile({
-//       displayName:name
-//     }).then(function() {
-//      console.log("user name updated");
-//     }).catch(function(error) {
-//      console.log(error);
-//     });
-//   }
+    user.updateProfile({
+      displayName:name
+    }).then(function() {
+     console.log("user name updated");
+    }).catch(function(error) {
+     console.log(error);
+    });
+  }
