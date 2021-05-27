@@ -22,28 +22,29 @@ function Login() {
   const googleSignIn=()=>{
     handleGoogleSignIn()
     .then(res=>{
-      setUser(res)
-      setLoggedInUser(res)
-      history.replace(from)
+      handleResponse(res,true)
     })
   }
   const fbSignIn=()=>{
     handleFbSignIn()
     .then(res=>{
-      setUser(res)
-      setLoggedInUser(res)
-      history.replace(from)
+      handleResponse(res,true)
     })
   }
   const signOut=()=>{
     handleSignOut()
     .then(res=>{
-      setUser(res);
-      setLoggedInUser(res)
+      handleResponse(res,false)
     })
   }
-  const {name,email,photo}=user;
-
+  // const {name,email,photo}=user;
+  const handleResponse=(res,redirect)=>{
+    setUser(res);
+    setLoggedInUser(res);
+    if (redirect) {
+      history.replace(from);
+    }
+  }
 
 const handleBlur = (e)=>{
   //console.log(e.target.name,e.target.value);
@@ -68,19 +69,15 @@ const handleSubmit =(e)=>{
   console.log(user.email,user.password);
   if (newUser && user.email && user.password) {
     //console.log("submitting");
-    createUserWithEmailAndPassword()
+    createUserWithEmailAndPassword(user.name,user.email,user.password)
     .then(res=>{
-      setUser(res);
-      setLoggedInUser(res);
-      history.replace(from)
+      handleResponse(res,true)
     })
   }
   if (!newUser && user.email && user.password) {
-    signInWithEmailAndPassword()
+    signInWithEmailAndPassword(user.email,user.password)
     .then(res=>{
-      setUser(res)
-      setLoggedInUser(res)
-      history.replace(from)
+      handleResponse(res,true)
     })
     
   }
@@ -98,9 +95,9 @@ const handleSubmit =(e)=>{
       {
         user.isSignedIn && 
         <div>
-            <p> {name} </p>
-            <p>{email} </p>
-            <img src={photo} alt="missing"/>
+            <p> {user.name} </p>
+            <p>{user.email} </p>
+            <img src={user.photo} alt="missing"/>
         </div>
       }
         <h1>Our own Authentication</h1>
