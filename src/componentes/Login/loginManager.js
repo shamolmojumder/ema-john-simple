@@ -1,4 +1,3 @@
-import React from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.Config';
@@ -8,6 +7,7 @@ export const initializeLoginFramework = () =>{
       firebase.initializeApp(firebaseConfig); 
     }
 }
+
 
 export const handleGoogleSignIn= ()=>{
     const googleProvider = new firebase.auth.GoogleAuthProvider();
