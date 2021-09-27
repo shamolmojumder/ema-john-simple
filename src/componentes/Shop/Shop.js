@@ -17,7 +17,7 @@ const Shop = () => {
     useEffect(()=>{
         const savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart);
-        if (products.length) {
+        if (products.length>0) {
             const previousCart=productKeys.map(existingKey =>{
                 const product=products.find(pd=>pd.key=== existingKey);
                 product.quantity=savedCart[existingKey];
