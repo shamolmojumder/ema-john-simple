@@ -25,3 +25,5 @@ const Inventory = () => {
 };
 
 export default Inventory;
+
+// emaJohnStore.products
