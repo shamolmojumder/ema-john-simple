@@ -28,7 +28,7 @@ const Review = () => {
         // cart
         const savedCart=getDatabaseCart(); //obj
         const productKeys=Object.keys(savedCart)//array
-        fetch('http://localhost:5000/productsByKeys',{
+        fetch('https://stormy-everglades-30231.herokuapp.com/productsByKeys',{
             method:'POST',
             headers:{
                 'Content-type': 'application/json'
