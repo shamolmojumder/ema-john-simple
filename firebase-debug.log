@@ -1,0 +1,68 @@
+[debug] [2021-10-03T18:41:04.106Z] ----------------------------------------------------------------------
+[debug] [2021-10-03T18:41:04.115Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\D3v1L\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-10-03T18:41:04.116Z] CLI Version:   9.19.0
+[debug] [2021-10-03T18:41:04.117Z] Platform:      win32
+[debug] [2021-10-03T18:41:04.117Z] Node Version:  v14.17.3
+[debug] [2021-10-03T18:41:04.119Z] Time:          Mon Oct 04 2021 00:41:04 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-10-03T18:41:04.120Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-03T18:41:04.357Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-03T18:41:04.358Z] > authorizing via signed-in user (shamolmojumder14@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\javascript\ema-john-simple
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using ema-john-simple-e5553. 
+[debug] [2021-10-03T18:42:45.131Z] > refreshing access token with scopes: []
+[debug] [2021-10-03T18:42:45.132Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-10-03T18:42:45.451Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sun, 03 Oct 2021 18:42:45 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-10-03T18:42:45.556Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ema-john-simple-e5553 [none]
+[debug] [2021-10-03T18:42:46.088Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ema-john-simple-e5553 200
+[debug] [2021-10-03T18:42:46.089Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ema-john-simple-e5553 {"projectId":"ema-john-simple-e5553","projectNumber":"1001993257386","displayName":"ema-john-simple","name":"projects/ema-john-simple-e5553","resources":{"hostingSite":"ema-john-simple-e5553","realtimeDatabaseInstance":"ema-john-simple-e5553-default-rtdb"},"state":"ACTIVE"}
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at G:\javascript\ema-john-simple 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=429831240&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-10-03T18:42:47.330Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"abb07bfee8cfaee1e5bf","redirect_uri":"http://localhost:9005","state":"429831240"}
+[debug] [2021-10-03T18:42:47.810Z] <<< HTTP RESPONSE 200 {"server":"GitHub.com","date":"Sun, 03 Oct 2021 18:42:47 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","vary":"X-PJAX, X-PJAX-Container, Accept-Encoding, Accept, X-Requested-With","permissions-policy":"interest-cohort=()","etag":"W/\"6c0248d20cba774fbfec1e4f80cfa287\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"0","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src github.com/assets-cdn/worker/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events translator.github.com wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com viewscreen.githubusercontent.com viewscreen-lab.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com secured-user-images.githubusercontent.com/ *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/assets-cdn/worker/ gist.github.com/assets-cdn/worker/ github.com/socket-worker-0af8a29d.js gist.github.com/socket-worker-0af8a29d.js","x-github-request-id":"6B4C:70AE:F871:175BD:6159F9A7"}
+[debug] [2021-10-03T18:42:47.817Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2021-10-03T18:42:48.393Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2021-10-03T18:42:48.394Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"shamolmojumder","id":25425772,"node_id":"MDQ6VXNlcjI1NDI1Nzcy","avatar_url":"https://avatars.githubusercontent.com/u/25425772?v=4","gravatar_id":"","url":"https://api.github.com/users/shamolmojumder","html_url":"https://github.com/shamolmojumder","followers_url":"https://api.github.com/users/shamolmojumder/followers","following_url":"https://api.github.com/users/shamolmojumder/following{/other_user}","gists_url":"https://api.github.com/users/shamolmojumder/gists{/gist_id}","starred_url":"https://api.github.com/users/shamolmojumder/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/shamolmojumder/subscriptions","organizations_url":"https://api.github.com/users/shamolmojumder/orgs","repos_url":"https://api.github.com/users/shamolmojumder/repos","events_url":"https://api.github.com/users/shamolmojumder/events{/privacy}","received_events_url":"https://api.github.com/users/shamolmojumder/received_events","type":"User","site_admin":false,"name":"Shamol Mojumder","company":"Genex Infosys Ltd","blog":"https://github.com/shamolmojumder","location":"Dhaka Bangladesh","email":"shamolmojumder14@gmail.com","hireable":true,"bio":"Hi This is Shamol Mojumder Dipu.I am a web developer.I have knowledge of HTML:5,Css3,Bootstrap,Javascript,Oop and React js,Axios.js,Context API,React Router","twitter_username":"shamol_mojumder","public_repos":34,"public_gists":0,"followers":0,"following":0,"created_at":"2017-01-30T04:27:49Z","updated_at":"2021-09-18T20:01:20Z","private_gists":0,"total_private_repos":13,"owned_private_repos":13,"disk_usage":23185,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as shamolmojumder 
+[info] 
+[debug] [2021-10-03T18:43:09.548Z] >>> [apiv2][query] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key type=owner
+[debug] [2021-10-03T18:43:09.983Z] <<< [apiv2][status] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key 404
+[debug] [2021-10-03T18:43:09.984Z] <<< [apiv2][body] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-10-03T18:43:14.395Z] >>> [apiv2][query] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key type=owner
+[debug] [2021-10-03T18:43:14.842Z] <<< [apiv2][status] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key 404
+[debug] [2021-10-03T18:43:14.843Z] <<< [apiv2][body] GET https://api.github.com/repos/https://github.com/shamolmojumder/ema-john-simple//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-10-03T18:43:15.722Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-10-03T18:43:16.172Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-10-03T18:43:16.172Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
