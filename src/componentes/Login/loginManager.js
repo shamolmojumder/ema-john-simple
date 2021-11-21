@@ -22,7 +22,8 @@ export const handleGoogleSignIn= ()=>{
         photo:photoURL,
         success:true
       };
-    return signedinUser;
+      setUserToken();
+      return signedinUser;
       //setLoggedInUser(signedinUser);
       //console.log(displayName,email,photoURL);
     })
@@ -31,6 +32,17 @@ export const handleGoogleSignIn= ()=>{
       console.log(err.message);
     });
   };
+
+const setUserToken=()=>{
+  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+  .then(function(idToken) {
+    sessionStorage.setItem('token',idToken);
+  }).catch(function(error) {
+    // Handle error
+  });
+  
+}
+
 
 // facebook login beta
 export const handleFbSignIn=()=>{
