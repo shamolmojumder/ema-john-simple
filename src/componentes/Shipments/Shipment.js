@@ -7,7 +7,7 @@ import './Shipment.css';
 
 const Shipment = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const [loggedInUser,setLoggedInUser]=useContext(UserContext)
+  const [loggedInUser]=useContext(UserContext);
   const onSubmit = data => {
     const savedCart=getDatabaseCart();
     const orderDetails={...loggedInUser,products:savedCart,shipment:data,orderTime:new Date()};

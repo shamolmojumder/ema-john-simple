@@ -5,8 +5,7 @@ import Shop from './componentes/Shop/Shop';
 import {
 BrowserRouter as Router,
 Switch,
-Route,
-Link
+Route
 } from "react-router-dom";
 import Review from './componentes/Review/Review';
 import Inventory from './componentes/Inventory/Inventory';

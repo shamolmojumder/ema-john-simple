@@ -2,7 +2,7 @@ import React from 'react';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import SplitCardForm from './SplitForm';
-// import SimpleCardForm from './SimpleCardForm';
+import SimpleCardForm from './SimpleCardForm';
 
 
 
@@ -13,8 +13,9 @@ const ProcessPayment = () => {
 
   return (
     <Elements stripe={stripePromise}>
-      {/* <SimpleCardForm></SimpleCardForm> */}
-        <SplitCardForm></SplitCardForm>
+      <h1>Pay first</h1>
+      <SimpleCardForm></SimpleCardForm>
+        {/* <SplitCardForm></SplitCardForm> */}
     </Elements>
   );
 };
