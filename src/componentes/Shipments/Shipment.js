@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
 import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
@@ -8,9 +8,20 @@ import './Shipment.css';
 const Shipment = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [loggedInUser]=useContext(UserContext);
+  const [shipingData,setShipingData]=useState(null)
   const onSubmit = data => {
+    setShipingData(data)
+  };
+
+  const handlePaymentSuccess=paymentId=>{
     const savedCart=getDatabaseCart();
-    const orderDetails={...loggedInUser,products:savedCart,shipment:data,orderTime:new Date()};
+    const orderDetails={
+      ...loggedInUser,
+      products:savedCart,
+      shipment:shipingData,
+      paymentId,
+      orderTime:new Date()
+    };
       fetch('https://stormy-everglades-30231.herokuapp.com/addOrder',{
         method:'POST',
         headers:{
@@ -22,16 +33,15 @@ const Shipment = () => {
       .then(data=>{
         if (data) {
           processOrder()          
-          alert("your order placed successfully")
+          alert('your order placed successfully')
         }
       })
-  };
-
+  }
   console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <div className="row">
-      <div className="col-md-6">
+      <div style={{display:shipingData ?'none':'block'}} className="col-md-6">
         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
           <input defaultValue={loggedInUser.name} {...register("name", { required: true })} placeholder="Your Name" />
           {errors.name && <span className="error">This name is required</span>}  
@@ -48,8 +58,9 @@ const Shipment = () => {
           <input type="submit" />
         </form>
       </div>
-      <div className="col-md-6">
-        <ProcessPayment></ProcessPayment>
+      <div  style={{display:shipingData ?'block':'none'}}  className="col-md-6">
+        <h2>Please pay first</h2>
+        <ProcessPayment handlePayment={handlePaymentSuccess}></ProcessPayment>
       </div>
     </div>
     
