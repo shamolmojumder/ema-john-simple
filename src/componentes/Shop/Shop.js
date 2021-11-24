@@ -9,11 +9,16 @@ import './Shop.css'
 const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
+    const [search, setSearch] = useState('')
     useEffect(()=>{
-        fetch('https://stormy-everglades-30231.herokuapp.com/products')
+        // fetch('https://stormy-everglades-30231.herokuapp.com/products?search='+search)
+        fetch('http://localhost:5055/products?search='+search)
         .then(res=>res.json())
         .then(data=>setProducts(data))
-    },[])
+    },[search])
+    const handleSearch=(event)=>{
+        setSearch(event.target.value)
+    }
     useEffect(()=>{
         const savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart);
@@ -50,6 +55,7 @@ const Shop = () => {
     return (
         <div className="twin-container">
              <div className="product-container">
+                 <input type="text" onChange={handleSearch} className="product-search" placeholder="Search"/>
                  {
                      products.length ===0 && <p>loading...</p>
                  }
